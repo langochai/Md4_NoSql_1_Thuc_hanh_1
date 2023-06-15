@@ -131,8 +131,7 @@ bookRoutes.delete('/delete/:id', async (req, res) => {
 
         if (book) {
 
-            // @ts-ignore
-            await book.remove();
+            await Book.deleteOne({_id:req.params.id});
 
             res.status(200).json({ message: "success" });
 
